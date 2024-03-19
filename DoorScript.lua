@@ -47,7 +47,9 @@ for _, v in pairs(Folder:GetChildren()) do
 		if closeTime == 0 then
 			return
 		else
-			wait(closeTime)
+			while v:SetAttribute("Open", true) do
+				task.wait(closeTime)
+			end
 			v:SetAttribute("Open", false)
 		end
 	end)
